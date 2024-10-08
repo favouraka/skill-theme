@@ -8,9 +8,12 @@
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "*",
         "blade-ui-kit/blade-icons": "^1.7",
+        "filament/filament": "^3.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.5"
+        "livewire/livewire": "^3.5",
+        "pboivin/filament-peek": "^2.2",
+        "z3d0x/filament-fabricator": "^2.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -35,7 +38,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

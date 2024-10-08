@@ -11,7 +11,7 @@
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-primary transition duration-300">About Us</a></li>
+                        <li><a href="{{\URL::to('about')}}" class="hover:text-primary transition duration-300">About Us</a></li>
                         <li><a href="#" class="hover:text-primary transition duration-300">Support Our Movement</a></li>
                         <li><a href="#" class="hover:text-primary transition duration-300">Apply/Request for Services</a></li>
                         <li><a href="#" class="hover:text-primary transition duration-300">Learn More</a></li>

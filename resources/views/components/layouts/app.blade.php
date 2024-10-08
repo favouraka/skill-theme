@@ -20,7 +20,8 @@
     <meta property="twitter:title" content="SkillSport - Empowering Children for Brighter Futures">
     <meta property="twitter:description" content="SkillSport - Empowering Children for Brighter Futures">
     <meta property="twitter:image" content="{{asset('img/meta-image.webp')}}">
-    <title>SkillSport - Empowering Children for Brighter Futures</title>
+    <title>{{ $title ?? 'SkillSport - Empowering Children for Brighter Futures' }}</title>
+    @filamentStyles
     @vite(['resources/css/app.css'])
 
     <style>
@@ -33,5 +34,6 @@
         {{$slot}}
     <x-footer/>
     @livewireScripts
+    @filamentScripts
 </body>
 </html>
