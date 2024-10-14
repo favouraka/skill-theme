@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BlogResource\Pages;
 use App\Models\Blog;
 use Filament\Forms;
-use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
@@ -17,7 +16,7 @@ class BlogResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    public static function form(Form $form): Form
+    public static function form(Forms\Form $form): Forms\Form
     {
         return $form
             ->schema([
