@@ -71,4 +71,9 @@ class BlogResource extends Resource
             'edit' => Pages\EditBlog::route('/{record}/edit'),
         ];
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 }
