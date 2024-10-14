@@ -6,8 +6,10 @@ use App\Filament\Resources\BlogResource\Pages;
 use App\Models\Blog;
 use Filament\Forms;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Database\Eloquent\Builder;
+use Filament\Resources\Pages\CreateRecord;
+use Filament\Resources\Pages\Page;
 use Illuminate\Support\Str;
 
 class BlogResource extends Resource
@@ -16,7 +18,7 @@ class BlogResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    public static function form(Forms\Form $form): Forms\Form
+    public static function form(Forms\Components\Form $form): Forms\Components\Form
     {
         return $form
             ->schema([
@@ -33,7 +35,7 @@ class BlogResource extends Resource
             ]);
     }
 
-    public static function table(Table $table): Table
+    public static function table(Tables\Table $table): Tables\Table
     {
         return $table
             ->columns([
