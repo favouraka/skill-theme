@@ -10,6 +10,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Pages\Page;
+use Filament\Forms\Form;
 use Illuminate\Support\Str;
 
 class BlogResource extends Resource
@@ -18,7 +19,7 @@ class BlogResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    public static function form(Forms\Components\Form $form): Forms\Components\Form
+    public static function form(Form $form): Form
     {
         return $form
             ->schema([
