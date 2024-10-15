@@ -3,14 +3,14 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Post;
+use App\Models\Blog;
 
 class BlogIndex extends Component
 {
     public function render()
     {
-        $posts = Post::latest()->paginate(10);
-        return view('livewire.blog-index', compact('posts'))
+        $blogs = Blog::latest()->paginate(10);
+        return view('livewire.blog-index', compact('blogs'))
             ->layout('layouts.app');
     }
 }
