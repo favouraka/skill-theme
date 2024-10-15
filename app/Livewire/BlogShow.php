@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Post;
+use App\Models\Blog as Post;
 
 class BlogShow extends Component
 {
@@ -16,7 +16,6 @@ class BlogShow extends Component
 
     public function render()
     {
-        return view('livewire.blog-show')
-            ->layout('layouts.app');
+        return view('livewire.blog-show');
     }
 }
