@@ -12,6 +12,7 @@
                     <a href="#" class="text-gray-700 hover:text-primary transition duration-300">Apply/Request for Services</a>
                     <a href="#" class="text-gray-700 hover:text-primary transition duration-300">Learn More</a>
                     <a href="#" class="text-gray-700 hover:text-primary transition duration-300">Events</a>
+                    <a href="{{ route('blog.index') }}" class="text-gray-700 hover:text-primary transition duration-300">Blog</a>
                 </div>
                 <button @click="mobileMenu = !mobileMenu" class="lg:hidden focus:outline-none">
                     <svg class="h-6 w-6 fill-current text-gray-700" viewBox="0 0 24 24">
@@ -26,6 +27,7 @@
                 <a href="#" class="block text-gray-700 hover:text-primary transition duration-300">Apply/Request for Services</a>
                 <a href="#" class="block text-gray-700 hover:text-primary transition duration-300">Learn More</a>
                 <a href="#" class="block text-gray-700 hover:text-primary transition duration-300">Events</a>
+                <a href="{{ route('blog.index') }}" class="block text-gray-700 hover:text-primary transition duration-300">Blog</a>
             </div>
         </nav>
     </header>

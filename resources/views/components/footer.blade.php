@@ -16,6 +16,7 @@
                         <li><a href="#" class="hover:text-primary transition duration-300">Apply/Request for Services</a></li>
                         <li><a href="#" class="hover:text-primary transition duration-300">Learn More</a></li>
                         <li><a href="#" class="hover:text-primary transition duration-300">Events</a></li>
+                        <li><a href="{{ route('blog.index') }}" class="hover:text-primary transition duration-300">Blog</a></li>
                     </ul>
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
