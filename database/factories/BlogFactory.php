@@ -17,6 +17,12 @@ class BlogFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'content' => $this->faker->paragraphs(3, true),
+            'author' => $this->faker->name,
+            'is_visible' => $this->faker->boolean(80),
+            'featured_image' => $this->faker->imageUrl(),
+            'excerpt' => $this->faker->paragraph,
+            'tags' => $this->faker->words(3, true),
+            'published_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
     }
 }
