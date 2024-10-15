@@ -23,6 +23,7 @@
                 <ul class="flex space-x-4">
                     <li><a href="{{ route('index') }}" class="hover:text-gray-300">Home</a></li>
                     <li><a href="{{ route('blog.index') }}" class="hover:text-gray-300">Blog</a></li>
+                    <li><a href="{{ route('blog.create') }}" class="hover:text-gray-300">Create Blog Post</a></li>
                     <!-- Add more navigation items as needed -->
                 </ul>
             </div>
