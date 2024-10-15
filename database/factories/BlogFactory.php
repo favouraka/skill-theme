@@ -21,7 +21,7 @@ class BlogFactory extends Factory
             'is_visible' => $this->faker->boolean(80),
             'featured_image' => $this->faker->imageUrl(),
             'excerpt' => $this->faker->paragraph,
-            'tags' => $this->faker->words(3, true),
+            'tags' => json_encode($this->faker->words(3)),
             'published_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
     }
