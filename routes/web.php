@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
+use App\Livewire\BlogIndex;
+use App\Livewire\BlogShow;
 
 Route::get('/', App\Livewire\Landing::class)->name('index');
 
 // Blog routes
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog', BlogIndex::class)->name('blog.index');
+Route::get('/blog/{post}', BlogShow::class)->name('blog.show');
