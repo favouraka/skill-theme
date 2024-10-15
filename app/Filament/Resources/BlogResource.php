@@ -66,7 +66,7 @@ class BlogResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBlogs::route('/'),
+            'index' => Pages\ListBlog::route('/'),
             'create' => Pages\CreateBlog::route('/create'),
             'edit' => Pages\EditBlog::route('/{record}/edit'),
         ];
