@@ -37,5 +37,6 @@
     <x-footer/>
     @livewireScripts
     @filamentScripts
+    @stack('scripts')
 </body>
 </html>
