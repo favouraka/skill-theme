@@ -55,9 +55,7 @@ class NewsletterSubscriberResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListNewsletterSubscribers::route('/'),
-            'create' => Pages\CreateNewsletterSubscriber::route('/create'),
-            'edit' => Pages\EditNewsletterSubscriber::route('/{record}/edit'),
+            'index' => Pages\ManageNewsletterSubscribers::route('/'),
         ];
     }
 }
