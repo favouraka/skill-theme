@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\NewsletterSubscriberResource\Pages;
 use App\Models\NewsletterSubscriber;
 use Filament\Forms;
-use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
@@ -16,7 +15,7 @@ class NewsletterSubscriberResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-mail';
 
-    public static function form(Form $form): Form
+    public static function form(Forms\Form $form): Forms\Form
     {
         return $form
             ->schema([
