@@ -44,15 +44,13 @@ class Landing extends Component
 
     public function subscribeToNewsletter()
     {
-        $this->validate([
+        $validatedData = $this->validate([
             'email' => 'required|email|unique:newsletter_subscribers,email',
         ]);
 
-        NewsletterSubscriber::create([
-            'email' => $this->email,
-        ]);
+        NewsletterSubscriber::create($validatedData);
 
-        $this->email = '';
+        $this->reset('email');
         session()->flash('message', 'You have successfully subscribed to our newsletter!');
     }
 
