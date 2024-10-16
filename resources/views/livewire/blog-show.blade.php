@@ -7,10 +7,10 @@
         <h1 class="text-3xl font-bold mb-4">{{ $post->title }}</h1>
 
         <div class="text-gray-600 mb-4">
-            <p>By {{ $post->author }} | Published on {{ $post->published_at ? $post->published_at->format('F j, Y') : $post->created_at->format('F j, Y') }}</p>
+            <p>By {{ $post->author }} | Published on {{ $post->published_at  }}</p>
             @if($post->tags)
                 <p class="mt-2">
-                    Tags: 
+                    Tags:
                     @foreach(json_decode($post->tags) as $tag)
                         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ $tag }}</span>
                     @endforeach
