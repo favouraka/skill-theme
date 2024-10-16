@@ -6,7 +6,6 @@ use App\Filament\Resources\NewsletterSubscriberResource\Pages;
 use App\Models\NewsletterSubscriber;
 use Filament\Forms;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
 
 class NewsletterSubscriberResource extends Resource
@@ -26,7 +25,7 @@ class NewsletterSubscriberResource extends Resource
             ]);
     }
 
-    public static function table(Table $table): Table
+    public static function table(Tables\Table $table): Tables\Table
     {
         return $table
             ->columns([
