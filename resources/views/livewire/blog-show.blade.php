@@ -1,5 +1,6 @@
 <div class="container mx-auto px-4 py-8">
-    <article>
+    <section class="max-w-5xl mx-auto">
+        <article>
         @if($post->featured_image)
             <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" class="w-full h-64 object-cover mb-6">
         @endif
@@ -49,7 +50,8 @@
         </div>
     @endif
 
-    <div class="mt-8">
-        <a href="{{ route('blog.index') }}" class="text-blue-500 hover:underline">&larr; Back to Blog</a>
-    </div>
+        <div class="mt-8">
+            <a href="{{ route('blog.index') }}" class="text-blue-500 hover:underline">&larr; Back to Blog</a>
+        </div>
+    </section>
 </div>
