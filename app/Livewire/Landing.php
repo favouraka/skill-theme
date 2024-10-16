@@ -3,9 +3,12 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\NewsletterSubscriber;
 
 class Landing extends Component
 {
+    public $email = '';
+
     public array $key_features = [
         [
             'title' => 'Project, Hand-On, and Skill-based Learning Programs',
@@ -38,6 +41,20 @@ class Landing extends Component
             'body' => 'Encourages continuous learning and upskilling by offering courses tailored to different stages of life, from early career development to later-stage career shifts.'
         ]
     ];
+
+    public function subscribeToNewsletter()
+    {
+        $this->validate([
+            'email' => 'required|email|unique:newsletter_subscribers,email',
+        ]);
+
+        NewsletterSubscriber::create([
+            'email' => $this->email,
+        ]);
+
+        $this->email = '';
+        session()->flash('message', 'You have successfully subscribed to our newsletter!');
+    }
 
     public function render()
     {
