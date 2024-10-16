@@ -11,7 +11,7 @@
                     <a href="#" class="text-gray-700 hover:text-primary transition duration-300">Support Our Movement</a>
                     <a href="#" class="text-gray-700 hover:text-primary transition duration-300">Apply/Request for Services</a>
                     <a href="#" class="text-gray-700 hover:text-primary transition duration-300">Learn More</a>
-                    <a href="#" class="text-gray-700 hover:text-primary transition duration-300">Events</a>
+                    <a href="{{ route('events.index') }}" class="text-gray-700 hover:text-primary transition duration-300">Events</a>
                     <a href="{{ route('blog.index') }}" class="text-gray-700 hover:text-primary transition duration-300">Blog</a>
                 </div>
                 <button @click="mobileMenu = !mobileMenu" class="lg:hidden focus:outline-none">
@@ -26,7 +26,7 @@
                 <a href="#" class="block text-gray-700 hover:text-primary transition duration-300">Support Our Movement</a>
                 <a href="#" class="block text-gray-700 hover:text-primary transition duration-300">Apply/Request for Services</a>
                 <a href="#" class="block text-gray-700 hover:text-primary transition duration-300">Learn More</a>
-                <a href="#" class="block text-gray-700 hover:text-primary transition duration-300">Events</a>
+                <a href="{{ route('events.index') }}" class="block text-gray-700 hover:text-primary transition duration-300">Events</a>
                 <a href="{{ route('blog.index') }}" class="block text-gray-700 hover:text-primary transition duration-300">Blog</a>
             </div>
         </nav>
