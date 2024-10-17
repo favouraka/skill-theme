@@ -10,11 +10,18 @@ return new class extends Migration
     {
         Schema::create('event_registrations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('event_id');
             $table->string('name');
             $table->string('email');
             $table->timestamps();
         });
+
+        // Add foreign key constraint if events table exists
+        if (Schema::hasTable('events')) {
+            Schema::table('event_registrations', function (Blueprint $table) {
+                $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            });
+        }
     }
 
     public function down()
