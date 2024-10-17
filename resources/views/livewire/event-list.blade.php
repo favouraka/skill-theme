@@ -4,6 +4,7 @@
         @foreach($events as $event)
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="p-6">
+                    <img src="{{ $event->image_path }}" alt="{{ $event->title }}" class="mb-4 w-48 h-48 object-cover rounded-lg">
                     <h2 class="text-xl font-semibold mb-2">{{ $event->title }}</h2>
                     <p class="text-gray-600 mb-4">{{ $event->start_date->format('F j, Y') }}</p>
                     <a href="{{ route('events.show', $event) }}" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
