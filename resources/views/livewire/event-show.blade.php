@@ -16,6 +16,6 @@
     </div>
     
     <div>
-        <a href="{{ route('events.list') }}">Back to All Events</a>
+        <a href="{{ route('events.index') }}">Back to All Events</a>
     </div>
 </div>
