@@ -15,6 +15,7 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('location')->nullable();
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }
