@@ -9,7 +9,7 @@
     @endif
     <p>{{ $event->description }}</p>
     
-    <livewire:event-registration :event="$event" />
+    <!-- Event registration component will be added here later -->
     
     <a href="{{ route('events.list') }}">Back to All Events</a>
 </div>
