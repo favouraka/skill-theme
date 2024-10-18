@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'slug'];
+    protected $guarded = '*';
 
     public function getRouteKeyName()
     {
@@ -20,13 +20,5 @@ class Blog extends Model
     {
         return $this->belongsToMany(Category::class);
     }
-{
-    use HasFactory;
 
-    protected $fillable = ['title', 'content', 'featured_image'];
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
-    }
 }

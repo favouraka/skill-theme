@@ -31,9 +31,7 @@
 </head>
 <body class="bg-lightGray font-sans" x-data="{ mobileMenu: false }">
     <x-navbar/>
-    <main class="container mx-auto mt-8 px-4">
-        {{$slot}}
-    </main>
+    {{$slot}}
     <x-footer/>
     @livewireScripts
     @filamentScripts

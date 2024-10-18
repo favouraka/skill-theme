@@ -12,7 +12,7 @@ class NewsletterSubscriberResource extends Resource
 {
     protected static ?string $model = NewsletterSubscriber::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-mail';
+    protected static ?string $navigationIcon = 'heroicon-o-user-plus';
 
     public static function form(Forms\Form $form): Forms\Form
     {
