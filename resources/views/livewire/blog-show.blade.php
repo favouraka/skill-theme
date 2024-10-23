@@ -8,7 +8,7 @@
         <h1 class="text-3xl font-bold mb-4">{{ $post->title }}</h1>
 
         <div class="text-gray-600 mb-4">
-            <p>By {{ $post->author }} | Published on {{ $post->published_at  }}</p>
+            <p>By {{ $post->author }} | Published {{ \carbon\Carbon::parse($post->published_at)->diffForHumans()  }}</p>
             @if($post->tags)
                 <p class="mt-2">
                     Tags:
@@ -68,7 +68,7 @@
     @endif
 
         <div class="mt-8">
-            <a href="{{ route('blog.index') }}" class="text-blue-500 hover:underline">&amp;larr; Back to Blog</a>
+            <a href="{{ route('blog.index') }}" class="text-blue-500 hover:underline">&larr; Back to Blog</a>
         </div>
     </section>
 </div>

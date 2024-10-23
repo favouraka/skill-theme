@@ -1,5 +1,4 @@
-
-    <footer class="bg-gray-800 text-white py-8">
+<footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-between gap-4">
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
@@ -11,12 +10,12 @@
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="{{\URL::to('about')}}" class="hover:text-primary transition duration-300">About Us</a></li>
-                        <li><a href="#" class="hover:text-primary transition duration-300">Support Our Movement</a></li>
-                        <li><a href="#" class="hover:text-primary transition duration-300">Apply/Request for Services</a></li>
-                        <li><a href="#" class="hover:text-primary transition duration-300">Learn More</a></li>
-                        <li><a href="{{ route('events.index') }}" class="hover:text-primary transition duration-300">Events</a></li>
-                        <li><a href="{{ route('blog.index') }}" class="hover:text-primary transition duration-300">Blog</a></li>
+                        <li><a href="{{ URL::to('about') }}" class="hover:text-primary transition duration-300">About Us</a></li>
+                        <li><a href="{{ URL::to('support-our-movement') }}" class="hover:text-primary transition duration-300">Support Our Movement</a></li>
+                        <li><a href="{{ URL::to('applyrequest-for-services') }}" class="hover:text-primary transition duration-300">Apply/Request for Services</a></li>
+                        <li><a href="{{ URL::to('learn-more') }}" class="hover:text-primary transition duration-300">Learn More</a></li>
+                        <li><a href="{{ URL::to('events') }}" class="hover:text-primary transition duration-300">Events</a></li>
+                        <li><a href="{{ URL::to('blog') }}" class="hover:text-primary transition duration-300">Blog</a></li>
                     </ul>
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">

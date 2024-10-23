@@ -1,14 +1,16 @@
 <div class="container mx-auto px-4 py-8">
-    <div class="mb-4 gap-4 text-sm md:text-base flex flex-col md:flex-row items-center justify-between">
-        <input type="text" wire:model.live="search" placeholder="Search blogs..." class="border border-gray-300 rounded px-3 py-2 w-full md:w-1/2">
-        <div x-data="{ selected: 'latest' }" class="ml-4" wire:model.live="filter">
-            <button type="button" x-on:click="selected = 'latest'; $dispatch('input', 'latest' )" :class="selected === 'latest' ? 'p-2 px-3 rounded-md bg-primary text-white' : 'p-2 px-3 rounded-md bg-gray-300 text-gray-800'">Newest</button>
-            <button type="button" x-on:click="selected = 'oldest'; $dispatch('input', 'oldest' )" :class="selected === 'oldest' ? 'p-2 px-3 rounded-md bg-primary text-white' : 'p-2 px-3 rounded-md bg-gray-300 text-gray-800'">Oldest</button>
-            <button type="button" x-on:click="selected = 'this_week'; $dispatch('input', 'this_week')" :class="selected === 'this_week' ? 'p-2 px-3 rounded-md bg-primary text-white' : 'p-2 px-3 rounded-md bg-gray-300 text-gray-800'">This Week</button>
+    @if ($blogs->count())        
+        <div class="mb-4 gap-4 text-sm md:text-base flex flex-col md:flex-row items-center justify-between">
+            <input type="text" wire:model.live="search" placeholder="Search blogs..." class="border border-gray-300 rounded px-3 py-2 w-full md:w-1/2">
+            <div x-data="{ selected: 'latest' }" class="ml-4" wire:model.live="filter">
+                <button type="button" x-on:click="selected = 'latest'; $dispatch('input', 'latest' )" :class="selected === 'latest' ? 'p-2 px-3 rounded-md bg-primary text-white' : 'p-2 px-3 rounded-md bg-gray-300 text-gray-800'">Newest</button>
+                <button type="button" x-on:click="selected = 'oldest'; $dispatch('input', 'oldest' )" :class="selected === 'oldest' ? 'p-2 px-3 rounded-md bg-primary text-white' : 'p-2 px-3 rounded-md bg-gray-300 text-gray-800'">Oldest</button>
+                <button type="button" x-on:click="selected = 'this_week'; $dispatch('input', 'this_week')" :class="selected === 'this_week' ? 'p-2 px-3 rounded-md bg-primary text-white' : 'p-2 px-3 rounded-md bg-gray-300 text-gray-800'">This Week</button>
+            </div>
         </div>
-    </div>
+    @endif
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @foreach ($blogs as $blog)
+        @forelse ($blogs as $blog)
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <img src="{{ $blog->featured_image }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover">
                 <div class="p-4">
@@ -26,7 +28,19 @@
                     <a href="{{ route('blog.show', $blog) }}" class="bg-tertiary text-white px-4 py-2 rounded-md hover:bg-opacity-80 transition">Read More</a>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="col-span-full flex justify-center mx-auto">
+                <div class="bg-white rounded-lg shadow-md p-8 max-w-md w-full text-center">
+                    <div class="flex justify-center mb-4">
+                        <svg class="w-16 h-16 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">No Blog Posts Found</h3>
+                    <p class="text-gray-600">@if($search)No blog posts match your search criteria.@else No blog posts have been published yet.@endif</p>
+                </div>
+            </div>
+        @endforelse
     </div>
     <div class="mt-8">
         {{ $blogs->links() }}
