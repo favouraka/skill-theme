@@ -14,7 +14,7 @@
                         <span class="text-lg font-medium text-gray-900">{{ $item['title'] }}</span>
                         <div 
                             class="transform transition-transform duration-200"
-                            :class="{'rotate-45': !open, 'rotate-0': open}"
+                            :class="{'rotate-0': !open, 'rotate-360': open}"
                         >
                             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
