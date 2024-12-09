@@ -18,7 +18,7 @@
                             @endif
                             
                             <div class="text-gray-600 text-center mb-4 prose">
-                                "{{ $testimonial->content }}"
+                                "{!! $testimonial->content !!}"
                             </div>
                             
                             <div class="text-center">
