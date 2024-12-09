@@ -5,7 +5,7 @@
             <!-- Image Section -->
             <div class="md:w-1/3 h-64 md:h-auto">
                 @if(isset($image))
-                    <img src="{{ $image }}" alt="Card Image" class="w-full h-full object-cover">
+                    <img src="{{ asset('storage/'.$image) }}" alt="Card Image" class="w-full h-full object-cover">
                 @else
                     <div class="w-full h-full bg-gray-200"></div>
                 @endif
