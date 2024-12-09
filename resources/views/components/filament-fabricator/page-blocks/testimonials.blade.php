@@ -17,7 +17,7 @@
                                 </div>
                             @endif
                             
-                            <div class="text-gray-600 text-center mb-4">
+                            <div class="text-gray-600 text-center mb-4 prose">
                                 "{{ $testimonial->content }}"
                             </div>
                             
