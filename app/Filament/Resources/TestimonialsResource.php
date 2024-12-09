@@ -24,10 +24,7 @@ class TestimonialsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('age')->required(),
-                Forms\Components\Textarea::make('description')->required(),
                 Forms\Components\RichEditor::make('content')->required(),
-                Forms\Components\TextInput::make('image')->required(),
             ]);
     }
 
@@ -36,10 +33,7 @@ class TestimonialsResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('age'),
-                Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('content'),
-                Tables\Columns\TextColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
             ])
