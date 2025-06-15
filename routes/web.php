@@ -5,7 +5,9 @@ use App\Livewire\BlogIndex;
 use App\Livewire\BlogShow;
 use App\Livewire\CategorySubscriptionForm;
 
-Route::get('/', App\Livewire\Landing::class)->name('index');
+use App\Http\Controllers\LandingController;
+
+Route::get('/', [LandingController::class, 'index'])->name('index');
 
 // Blog routes
 Route::get('/blog', BlogIndex::class)->name('blog.index');

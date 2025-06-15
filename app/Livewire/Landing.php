@@ -56,6 +56,7 @@ class Landing extends Component
 
     public function render()
     {
+        // dd($this->key_features);
         return view('livewire.landing');
     }
 }

@@ -2,14 +2,22 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-between gap-4">
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    @php
+                        $homeUrl = \Z3d0X\FilamentFabricator\Models\Page::whereTitle('Home')->exists()
+                            ? '/' . \Z3d0X\FilamentFabricator\Models\Page::whereTitle('Home')->first()->slug
+                            : '/';
+                    @endphp
                     <h3 class="text-xl font-bold mb-4">
-                        <img src="{{ asset('img/footer-logo.webp') }}" alt="SkillSport Logo" class="h-32 w-auto">
+                        <a href="{{ $homeUrl }}">
+                            <img src="{{ asset('img/footer-logo.webp') }}" alt="SkillSport Logo" class="h-32 w-auto">
+                        </a>
                     </h3>
                     <p class="text-sm">Empowering children for brighter futures through skill development and support.</p>
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
+                        <li><a href="{{ $homeUrl }}" class="hover:text-primary transition duration-300">Home</a></li>
                         <li><a href="{{ URL::to('about') }}" class="hover:text-primary transition duration-300">About Us</a></li>
                         <li><a href="{{ URL::to('support-our-movement') }}" class="hover:text-primary transition duration-300">Support Our Movement</a></li>
                         <li><a href="{{ URL::to('applyrequest-for-services') }}" class="hover:text-primary transition duration-300">Apply/Request for Services</a></li>

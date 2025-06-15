@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fee3b311c3055bfdd922ea469b7db87a",
+    "content-hash": "0b562a0b46ceff041d3204414ff54203",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7536,36 +7536,35 @@
         },
         {
             "name": "z3d0x/filament-fabricator",
-            "version": "v2.2.2",
+            "version": "v2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Z3d0X/filament-fabricator.git",
-                "reference": "f7fe2b20eef8c504b2fbefc31333e5699c6b2c83"
+                "reference": "77e90e32a58211b4fd371b20fcfe6aace042c367"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Z3d0X/filament-fabricator/zipball/f7fe2b20eef8c504b2fbefc31333e5699c6b2c83",
-                "reference": "f7fe2b20eef8c504b2fbefc31333e5699c6b2c83",
+                "url": "https://api.github.com/repos/Z3d0X/filament-fabricator/zipball/77e90e32a58211b4fd371b20fcfe6aace042c367",
+                "reference": "77e90e32a58211b4fd371b20fcfe6aace042c367",
                 "shasum": ""
             },
             "require": {
                 "filament/filament": "^3.0",
-                "illuminate/contracts": "^9.0 | ^10.0 | ^11.0",
+                "illuminate/contracts": "^9.0 | ^10.0 | ^11.0 | ^12.0",
                 "pboivin/filament-peek": "^2.0",
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.13.5"
             },
             "require-dev": {
+                "larastan/larastan": "^2.9",
                 "laravel/pint": "^1.0",
                 "nunomaduro/collision": "^7.0 | ^8.0",
-                "nunomaduro/larastan": "^2.0.1",
-                "orchestra/testbench": "^8.0 | ^9.0",
-                "pestphp/pest": "^2.0",
-                "pestphp/pest-plugin-laravel": "^2.0",
-                "pestphp/pest-plugin-livewire": "^2.0",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
+                "orchestra/testbench": "^8.0 | ^9.0 | ^10.0",
+                "pestphp/pest": "^2.0 | ^3.7",
+                "pestphp/pest-plugin-laravel": "^2.0 | ^3.1",
+                "pestphp/pest-plugin-livewire": "^2.0 | ^3.0",
+                "phpstan/phpstan-deprecation-rules": "^1.0 | ^2.0",
+                "phpstan/phpstan-phpunit": "^1.0 | ^2.0",
                 "spatie/laravel-ray": "^1.26"
             },
             "type": "library",
@@ -7605,9 +7604,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Z3d0X/filament-fabricator/issues",
-                "source": "https://github.com/Z3d0X/filament-fabricator/tree/v2.2.2"
+                "source": "https://github.com/Z3d0X/filament-fabricator/tree/v2.5"
             },
-            "time": "2024-05-12T12:21:17+00:00"
+            "time": "2025-03-04T09:17:03+00:00"
         }
     ],
     "packages-dev": [

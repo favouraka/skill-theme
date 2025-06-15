@@ -1,11 +1,21 @@
 <header class="bg-white shadow-md">
         <nav class="container mx-auto px-6 py-2" aria-label="Main navigation">
             <div class="flex justify-between items-center">
-                <a href="{{ URL::to('/') }}" class="text-2xl font-bold text-primary">
+                @php
+                    $homeUrl = \Z3d0X\FilamentFabricator\Models\Page::whereTitle('Home')->exists()
+                        ? '/' . \Z3d0X\FilamentFabricator\Models\Page::whereTitle('Home')->first()->slug
+                        : '/';
+                @endphp
+                <a href="{{ $homeUrl }}" class="text-2xl font-bold text-primary">
                     <img src="{{ asset('img/main-logo.webp') }}" alt="SkillSport Logo" class="h-12 w-auto">
                 </a>
 
                 <div class="hidden lg:flex space-x-6 text-sm">
+                    <a href="{{ $homeUrl }}"
+                       class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('/') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
+                       @if(request()->is('/')) aria-current="page" @endif>
+                       Home
+                    </a>
                     <a href="{{ URL::to('about') }}" 
                        class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('about') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
                        @if(request()->is('about')) aria-current="page" @endif>
@@ -58,6 +68,11 @@
                  x-transition:leave-end="opacity-0 scale-95" 
                  class="lg:hidden mt-4 space-y-4 py-2"
                  id="mobile-menu">
+                <a href="{{ $homeUrl }}"
+                   class="block px-4 py-3 rounded-md {{ request()->is('/') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
+                   @if(request()->is('/')) aria-current="page" @endif>
+                   Home
+                </a>
                 <a href="{{ URL::to('about') }}" 
                    class="block px-4 py-3 rounded-md {{ request()->is('about') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
                    @if(request()->is('about')) aria-current="page" @endif>
