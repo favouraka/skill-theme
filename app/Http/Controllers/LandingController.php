@@ -12,18 +12,7 @@ class LandingController extends Controller
     public function index()
     {
         if (\Z3d0X\FilamentFabricator\Models\Page::whereTitle('Home')->exists()) {
-            $page = FilamentFabricator::getPageWithBlocks('home');
-
-            if (! $page) {
-                abort(404);
-            }
-
-            $homeUrl = '/' . \Z3d0X\FilamentFabricator\Models\Page::whereTitle('Home')->first()->slug;
-
-            return view('filament.pages.landing-page', [
-                'page' => $page,
-                'homeUrl' => $homeUrl,
-            ]);
+            return redirect('home');
         }
 
         return view('home', [
