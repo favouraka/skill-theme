@@ -15,6 +15,8 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "@alpinejs/intersect": "^3.14.1"
+        "@alpinejs/intersect": "^3.14.1",
+        "@fontsource/inter": "^5.2.6",
+        "@fontsource/nunito": "^5.2.6"
     }
 }

@@ -7,7 +7,16 @@
                         : '/';
                 @endphp
                 <a href="{{ $homeUrl }}" class="text-2xl font-bold text-primary">
-                    <img src="{{ asset('img/main-logo.webp') }}" alt="SkillSport Logo" class="h-12 w-auto">
+                  @php
+                     $logoPath = 'img/main-logo.webp';
+                     $logoExists = file_exists(public_path($logoPath));
+                  @endphp
+
+                  @if($logoExists)
+                     <img src="{{ asset($logoPath) }}" alt="SkillSport Logo" class="h-12 w-auto">
+                  @else
+                     {{ config('app.name', 'SkillSport') }}
+                  @endif
                 </a>
 
                 <div class="hidden lg:flex space-x-6 text-sm">
@@ -16,36 +25,29 @@
                        @if(request()->is('/')) aria-current="page" @endif>
                        Home
                     </a>
-                    <a href="{{ URL::to('about') }}" 
-                       class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('about') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
-                       @if(request()->is('about')) aria-current="page" @endif>
-                       About Us
-                    </a>
-                    <a href="{{ URL::to('support-our-movement') }}" 
-                       class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('support-our-movement') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
-                       @if(request()->is('support-our-movement')) aria-current="page" @endif>
-                       Support Our Movement
-                    </a>
-                    <a href="{{ URL::to('applyrequest-for-services') }}" 
-                       class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('applyrequest-for-services') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
-                       @if(request()->is('applyrequest-for-services')) aria-current="page" @endif>
-                       Apply/Request for Services
-                    </a>
-                    <a href="{{ URL::to('learn-more') }}" 
-                       class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('learn-more') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
-                       @if(request()->is('learn-more')) aria-current="page" @endif>
-                       Learn More
-                    </a>
-                    <a href="{{ URL::to('events') }}" 
-                       class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('events') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
-                       @if(request()->is('events')) aria-current="page" @endif>
-                       Events
-                    </a>
-                    <a href="{{ URL::to('blog') }}" 
-                       class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('blog') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
-                       @if(request()->is('blog')) aria-current="page" @endif>
-                       Blog
-                    </a>
+                  @php
+                     $menuItems = \Z3d0X\FilamentFabricator\Models\Page::where('title', '!=', 'Home')->get();
+                  @endphp
+
+                  @foreach($menuItems as $menuItem)
+                     <a href="{{ '/' . $menuItem->slug }}"
+                        class="text-gray-700 px-3 py-2 rounded-md {{ request()->is($menuItem->slug) ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
+                        @if(request()->is($menuItem->slug)) aria-current="page" @endif>
+                        {{ $menuItem->title }}
+                     </a>
+                  @endforeach
+
+                  <!-- event and blog links -->
+                     <a href="{{ URL::to('events') }}" 
+                         class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('events') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
+                         @if(request()->is('events')) aria-current="page" @endif>
+                         Events
+                     </a>
+                     <a href="{{ URL::to('blog') }}" 
+                         class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('blog') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
+                         @if(request()->is('blog')) aria-current="page" @endif>
+                         Blog
+                     </a>
                 </div>
                 <button @click="mobileMenu = !mobileMenu" 
                         class="lg:hidden focus:outline-none p-2 rounded-md hover:bg-gray-100 transition duration-300"
@@ -73,26 +75,13 @@
                    @if(request()->is('/')) aria-current="page" @endif>
                    Home
                 </a>
-                <a href="{{ URL::to('about') }}" 
-                   class="block px-4 py-3 rounded-md {{ request()->is('about') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
-                   @if(request()->is('about')) aria-current="page" @endif>
-                   About Us
-                </a>
-                <a href="{{ URL::to('support-our-movement') }}" 
-                   class="block px-4 py-3 rounded-md {{ request()->is('support-our-movement') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
-                   @if(request()->is('support-our-movement')) aria-current="page" @endif>
-                   Support Our Movement
-                </a>
-                <a href="{{ URL::to('applyrequest-for-services') }}" 
-                   class="block px-4 py-3 rounded-md {{ request()->is('applyrequest-for-services') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
-                   @if(request()->is('applyrequest-for-services')) aria-current="page" @endif>
-                   Apply/Request for Services
-                </a>
-                <a href="{{ URL::to('learn-more') }}" 
-                   class="block px-4 py-3 rounded-md {{ request()->is('learn-more') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
-                   @if(request()->is('learn-more')) aria-current="page" @endif>
-                   Learn More
-                </a>
+                 @foreach($menuItems as $menuItem)
+                   <a href="{{ '/' . $menuItem->slug }}"
+                     class="block px-4 py-3 rounded-md {{ request()->is($menuItem->slug) ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
+                     @if(request()->is($menuItem->slug)) aria-current="page" @endif>
+                     {{ $menuItem->title }}
+                   </a>
+                 @endforeach
                 <a href="{{ URL::to('events') }}" 
                    class="block px-4 py-3 rounded-md {{ request()->is('events') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
                    @if(request()->is('events')) aria-current="page" @endif>

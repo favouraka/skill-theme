@@ -8,28 +8,43 @@
                             : '/';
                     @endphp
                     <h3 class="text-xl font-bold mb-4">
+                        @php
+                            $logoPath = 'img/footer-logo.webp';
+                            $appName = env('APP_NAME', 'SkillSport');
+                        @endphp
+
                         <a href="{{ $homeUrl }}">
-                            <img src="{{ asset('img/footer-logo.webp') }}" alt="SkillSport Logo" class="h-32 w-auto">
+                            @if(file_exists(public_path($logoPath)))
+                                <img src="{{ asset($logoPath) }}" alt="SkillSport Logo" class="h-32 w-auto">
+                            @else
+                                <span class="text-2xl font-bold">{{ $appName }}</span>
+                            @endif
                         </a>
                     </h3>
-                    <p class="text-sm">Empowering children for brighter futures through skill development and support.</p>
+                    <!-- <p class="text-sm">Empowering children for brighter futures through skill development and support.</p> -->
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="{{ $homeUrl }}" class="hover:text-primary transition duration-300">Home</a></li>
-                        <li><a href="{{ URL::to('about') }}" class="hover:text-primary transition duration-300">About Us</a></li>
-                        <li><a href="{{ URL::to('support-our-movement') }}" class="hover:text-primary transition duration-300">Support Our Movement</a></li>
-                        <li><a href="{{ URL::to('applyrequest-for-services') }}" class="hover:text-primary transition duration-300">Apply/Request for Services</a></li>
-                        <li><a href="{{ URL::to('learn-more') }}" class="hover:text-primary transition duration-300">Learn More</a></li>
+                        @php
+                            $otherPages = \Z3d0X\FilamentFabricator\Models\Page::where('title', '!=', 'Home')->get();
+                        @endphp
+                        @foreach($otherPages as $page)
+                            <li>
+                                <a href="{{ url($page->slug) }}" class="hover:text-primary transition duration-300">
+                                    {{ $page->title }}
+                                </a>
+                            </li>
+                        @endforeach
                         <li><a href="{{ URL::to('events') }}" class="hover:text-primary transition duration-300">Events</a></li>
                         <li><a href="{{ URL::to('blog') }}" class="hover:text-primary transition duration-300">Blog</a></li>
                     </ul>
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
-                    <p class="text-sm">Email: admin@skillsport.org</p>
-                    <p class="text-sm">Phone: 856-223-7708</p>
+                    <p class="text-sm">Email: admin@yetzhomes.com</p>
+                    <p class="text-sm">Phone: 080123456789</p>
                 </div>
                 <div class="w-full md:w-1/4">
                     <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
@@ -47,7 +62,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-sm text-center">
-                <p>&copy; {{ \Carbon\Carbon::now()->year }} SkillSport. All rights reserved.</p>
+                <p>&copy; {{ \Carbon\Carbon::now()->year }} {{env('APP_NAME', 'SkillSport')}}. All rights reserved.</p>
             </div>
         </div>
     </footer>

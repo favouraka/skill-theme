@@ -17,12 +17,20 @@ class HeroSectionBlock extends PageBlock
                 \Filament\Forms\Components\Textarea::make('description')
                     ->label('Description')
                     ->required(),
-                \Filament\Forms\Components\TextInput::make('button_text')
-                    ->label('Button Text')
-                    ->required(),
-                \Filament\Forms\Components\TextInput::make('button_url')
-                    ->label('Button URL')
-                    ->required(),
+                \Filament\Forms\Components\TextInput::make('primary_button_text')
+                    ->label('Primary Button Text'),
+                \Filament\Forms\Components\TextInput::make('primary_button_url')
+                    ->label('Primary Button URL'),
+                \Filament\Forms\Components\TextInput::make('secondary_button_text')
+                    ->label('Secondary Button Text'),
+                \Filament\Forms\Components\TextInput::make('secondary_button_url')
+                    ->label('Secondary Button URL'),
+                \Filament\Forms\Components\FileUpload::make('background_image')->maxSize(2048)
+                ->imageEditor()
+                ->imageEditorAspectRatios([
+                    '16:9',
+                    '4:3',
+                ]),
             ]);
     }
 
