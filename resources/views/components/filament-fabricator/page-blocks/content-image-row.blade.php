@@ -44,7 +44,7 @@
                     </a>
                 @endif
             </div>
-            @if ($images->count() > 0)
+            @if (count($images) > 0)
                 <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
                     <div class="space-y-4 flex flex-col gap-4 relative m-auto">
                         @foreach ($images as $item)
@@ -52,7 +52,7 @@
                         @endforeach
                     </div>
                 </div>
-            @elseif($images->count() == 0 && $image)
+            @elseif(count($images) == 0 && $image)
                 <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
                     <div class="space-y-4 flex flex-col gap-4 relative m-auto">
                         <img src="{{asset('storage/'.$image)}}" alt="Image" class="aspect-4/3">
