@@ -44,8 +44,9 @@
                     </a>
                 @endif
             </div>
-            @if (is_array($image))
-                @if (count($image) > 0)
+            {{-- {{dd($images)}} --}}
+            @if (is_array($images))
+                @if (count($images) > 0)
                     <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
                         <div class="space-y-4 flex flex-col gap-4 relative m-auto">
                             @foreach ($image as $item)
@@ -54,12 +55,12 @@
                         </div>
                     </div>
                 @endif
-            @elseif(isset($image))
+            @elseif(isset($images))
                 {{-- If $image is set (single image) --}}
                 <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
                     <div class="space-y-4 flex flex-col gap-4 relative m-auto">
                         {{-- Display the single image --}}
-                        <img src="{{asset('storage/'.$image)}}" alt="Image" class="aspect-4/3">
+                        <img src="{{asset('storage/'.$images)}}" alt="Image" class="aspect-4/3">
                     </div>
                 </div>
             @else
