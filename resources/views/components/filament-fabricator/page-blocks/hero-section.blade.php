@@ -1,6 +1,7 @@
 @props(['title', 'description', 'primary_button_text', 'primary_button_url', 'secondary_button_text', 'secondary_button_url', 'background_image' => null])
 
-<section class="bg-gradient-to-br from-primary via-secondary to-tertiary text-white py-20">
+
+<section class="relative overflow-hidden bg-gradient-to-br from-primary via-secondary to-tertiary text-white py-20">
     @if($background_image)
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="absolute inset-0 bg-cover bg-center mix-blend-multiply" style="background-image: url('{{ asset('storage/'.$background_image) }}');"></div>
