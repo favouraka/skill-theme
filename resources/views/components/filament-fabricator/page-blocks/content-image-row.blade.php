@@ -1,4 +1,28 @@
 @aware(['page'])
+@props([
+    'heading' => '',
+    'subheading' => '',
+    'body' => '',
+    'align' => 'left',
+    'images' => collect(),
+    'image' => null,
+    'primary_button_label' => null,
+    'primary_button_url' => null,
+    'secondary_button_label' => null,
+    'secondary_button_url' => null,
+])
+
+{{-- This is a content image row block with a heading, subheading, body text, and images. --}}
+{{-- The images can be displayed in a row with the content on the left or right side. --}}
+{{-- The block also supports primary and secondary buttons with labels and URLs. --}}
+{{-- The images are displayed in a responsive grid layout. --}}
+{{-- The block is designed to be used in a Filament Fabricator page. --}}
+{{-- The images are stored in the storage folder and can be accessed via the asset() helper. --}}
+{{-- The block is styled using Tailwind CSS classes for responsive design and spacing. --}}
+{{-- The block is designed to be used in a Filament Fabricator page. --}}
+{{-- The block supports both single and multiple images. --}}
+{{-- The block is responsive and adjusts the layout based on the screen size. --}}
+{{-- The block uses the aspect ratio of 4:3 for the images. --}}`
 <div class="p-8 md:py-16">
     <div class="max-w-5xl mx-auto">
         <div class="grid grid-cols-1 {{ $images ? 'md:grid-cols-2 gap-8' : '' }}">
