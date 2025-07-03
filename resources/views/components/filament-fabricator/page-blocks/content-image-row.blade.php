@@ -34,12 +34,12 @@
                 </div>
                 <!-- primary and secondary buttons labels and url as in the components -->
                 @if ($primary_button_label && $primary_button_url)
-                    <a href="{{$primary_button_url}}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    <a href="{{$primary_button_url}}" class="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-blue-700">
                         {{$primary_button_label}}
                     </a>
                 @endif
                 @if ($secondary_button_label && $secondary_button_url)
-                    <a href="{{$secondary_button_url}}" class="inline-block bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">
+                    <a href="{{$secondary_button_url}}" class="inline-block ring-2 ring-primary text-gray-700 px-4 py-2 rounded hover:bg-gray-100">
                         {{$secondary_button_label}}
                     </a>
                 @endif
