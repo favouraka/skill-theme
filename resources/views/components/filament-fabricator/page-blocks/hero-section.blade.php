@@ -3,7 +3,7 @@
 <section class="bg-gradient-to-br from-primary via-secondary to-tertiary text-white py-20">
     @if($background_image)
     <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="absolute inset-0 bg-cover bg-center mix-blend-multiply" style="background-image: url('{{ asset('storage/'.$image) }}');"></div>
+    <div class="absolute inset-0 bg-cover bg-center mix-blend-multiply" style="background-image: url('{{ asset('storage/'.$background_image) }}');"></div>
     @endif
 
     <div class="container mx-auto px-6">
