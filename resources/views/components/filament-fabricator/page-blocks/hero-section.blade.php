@@ -7,7 +7,7 @@
     <div class="absolute inset-0 bg-cover bg-center mix-blend-multiply" style="background-image: url('{{ asset('storage/'.$background_image) }}');"></div>
     @endif
 
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto px-6 relative">
         <div class="max-w-3xl mx-auto text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-6" x-data x-intersect="$el.classList.add('animate-fade-in-up')">{{ $title }}</h1>
             <p class="text-xl mb-8" x-data x-intersect="$el.classList.add('animate-fade-in-up', 'animate-delay-200')">{{ $description }}</p>
