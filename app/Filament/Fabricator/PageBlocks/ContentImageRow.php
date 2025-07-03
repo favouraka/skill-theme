@@ -20,7 +20,13 @@ class ContentImageRow extends PageBlock
                 TextInput::make('heading')->required(),
                 Textarea::make('subheading')->maxLength(160),
                 Select::make('align')->options(['left' => 'Left', 'right' => 'Right'])->default('left')->required(),
-                RichEditor::make('body')->required(),
+                RichEditor::make('body')->required(),   
+                // add primary and secondary buttons label and url fields
+                TextInput::make('primary_button_label')->label('Primary Button Label'),
+                TextInput::make('primary_button_url')->label('Primary Button URL'),
+                TextInput::make('secondary_button_label')->label('Secondary Button Label'),
+                TextInput::make('secondary_button_url')->label('Secondary Button URL'),
+                // add image field
                 FileUpload::make('images')->image()->maxFiles(3)
                     ->imageResizeMode('cover')
                     ->imageCropAspectRatio('4:3')

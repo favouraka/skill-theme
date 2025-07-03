@@ -8,8 +8,19 @@
                 <div class="prose text-gray-700 w-full">
                     {!! $body !!}
                 </div>
+                <!-- primary and secondary buttons labels and url as in the components -->
+                @if ($primary_button_label && $primary_button_url)
+                    <a href="{{$primary_button_url}}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                        {{$primary_button_label}}
+                    </a>
+                @endif
+                @if ($secondary_button_label && $secondary_button_url)
+                    <a href="{{$secondary_button_url}}" class="inline-block bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">
+                        {{$secondary_button_label}}
+                    </a>
+                @endif
             </div>
-            @if ($images)
+            @if ($images->count() > 0)
                 <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
                     <div class="space-y-4 flex flex-col gap-4 relative m-auto">
                         @foreach ($images as $item)
@@ -17,6 +28,14 @@
                         @endforeach
                     </div>
                 </div>
+            @elseif($images->count() == 0 && $image)
+                <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
+                    <div class="space-y-4 flex flex-col gap-4 relative m-auto">
+                        <img src="{{asset('storage/'.$image)}}" alt="Image" class="aspect-4/3">
+                    </div>
+                </div>
+            @else
+                <div class="hidden"></div>
             @endif
         </div>
     </div>
