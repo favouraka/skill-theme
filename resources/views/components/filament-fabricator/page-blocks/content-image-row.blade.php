@@ -44,21 +44,26 @@
                     </a>
                 @endif
             </div>
-            @if (count($images) > 0)
-                <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
-                    <div class="space-y-4 flex flex-col gap-4 relative m-auto">
-                        @foreach ($images as $item)
-                            <img src="{{asset('storage/'.$item)}}" alt="Image" class="aspect-4/3">
-                        @endforeach
+            @if (is_array($image))
+                @if (count($image) > 0)
+                    <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
+                        <div class="space-y-4 flex flex-col gap-4 relative m-auto">
+                            @foreach ($image as $item)
+                                <img src="{{asset('storage/'.$item)}}" alt="Image" class="aspect-4/3">
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-            @elseif(count($images) == 0 && $image)
+                @endif
+            @elseif(isset($image))
+                {{-- If $image is set (single image) --}}
                 <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
                     <div class="space-y-4 flex flex-col gap-4 relative m-auto">
+                        {{-- Display the single image --}}
                         <img src="{{asset('storage/'.$image)}}" alt="Image" class="aspect-4/3">
                     </div>
                 </div>
             @else
+                {{-- If no image is set, hide the div --}}
                 <div class="hidden"></div>
             @endif
         </div>
