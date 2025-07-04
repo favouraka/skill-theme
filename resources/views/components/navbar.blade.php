@@ -26,7 +26,7 @@
                        Home
                     </a>
                   @php
-                     $menuItems = \Z3d0X\FilamentFabricator\Models\Page::where('title', '!=', 'Home')->get();
+                     $menuItems = \Z3d0X\FilamentFabricator\Models\Page::where('title', '!=', 'Home')->whereNull('parent_id')->get();
                   @endphp
 
                   @foreach($menuItems as $menuItem)

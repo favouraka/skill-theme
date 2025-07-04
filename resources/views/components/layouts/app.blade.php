@@ -39,8 +39,9 @@
     <x-navbar/>
     {{$slot}}
     <x-footer/>
-    @livewireScripts
     @filamentScripts
+    @livewireScripts
+    @vite(['resources/js/app.js'])
     @stack('scripts')
 </body>
 </html>

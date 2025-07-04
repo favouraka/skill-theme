@@ -28,7 +28,7 @@
                     <ul class="space-y-2">
                         <li><a href="{{ $homeUrl }}" class="hover:text-primary transition duration-300">Home</a></li>
                         @php
-                            $otherPages = \Z3d0X\FilamentFabricator\Models\Page::where('title', '!=', 'Home')->get();
+                            $otherPages = \Z3d0X\FilamentFabricator\Models\Page::where('title', '!=', 'Home')->whereNull('parent_id')->get();
                         @endphp
                         @foreach($otherPages as $page)
                             <li>
@@ -43,8 +43,8 @@
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
-                    <p class="text-sm">Email: admin@yetzhomes.com</p>
-                    <p class="text-sm">Phone: 080123456789</p>
+                    <p class="text-sm">Email: {{ config('site-info.email') }}</p>
+                    <p class="text-sm">Phone: {{ config('site-info.phone') }}</p>
                 </div>
                 <div class="w-full md:w-1/4">
                     <h4 class="text-lg font-semibold mb-4">Follow Us</h4>

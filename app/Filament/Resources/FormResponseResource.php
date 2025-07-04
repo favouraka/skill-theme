@@ -27,6 +27,10 @@ class FormResponseResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required(),
+                Forms\Components\TextInput::make('form_phone')
+                    ->nullable()
+                    ->tel()
+                    ->label('Phone (optional)'),
                 Forms\Components\Textarea::make('message')
                     ->required(),
                 Forms\Components\TextInput::make('service_requested')
@@ -40,6 +44,8 @@ class FormResponseResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('form_phone')
+                    ->label('Phone (optional)'),
                 Tables\Columns\TextColumn::make('message'),
                 Tables\Columns\TextColumn::make('service_requested'),
                 Tables\Columns\TextColumn::make('created_at')

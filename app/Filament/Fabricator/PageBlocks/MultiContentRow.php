@@ -27,7 +27,13 @@ class MultiContentRow extends PageBlock
                     TextInput::make('heroicon'),
                     FileUpload::make('image')->image()->imageResizeMode('cover')
                         ->imageResizeTargetWidth('1024')->imageResizeTargetHeight('1024')->imageCropAspectRatio('1:1'),
-                ])
+                        // add an button and button url for the repeated items
+                    TextInput::make('button_text')->label('Button Text'),
+                    TextInput::make('button_url')->label('Button URL'),
+                ]),
+                // collection resource button link
+                TextInput::make('collection_button_label')->label('Collection Button Label'),
+                TextInput::make('collection_button_url')->label('Collection Button URL'),
             ]);
     }
 
