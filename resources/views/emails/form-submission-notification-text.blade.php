@@ -10,7 +10,7 @@ Service Requested: {{ $formResponse->service_requested }}
 @if($formResponse->message)
 Message: {{ $formResponse->message }}
 @endif
-Submitted At: {{ $formResponse->created_at->format('F j, Y \a\t g:i A') }}
+Submitted At: {{ $formResponse->created_at->format('F j, Y \a\t g:i A') }} UTC
 
 ---
 This notification was sent from {{ config('app.name') }}.

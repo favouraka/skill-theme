@@ -76,7 +76,7 @@
 
         <div class="field">
             <div class="label">Submitted At:</div>
-            <div class="value">{{ $formResponse->created_at->format('F j, Y \a\t g:i A') }}</div>
+            <div class="value">{{ $formResponse->created_at->format('F j, Y \a\t g:i A') }} UTC</div>
         </div>
     </div>
 
