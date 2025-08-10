@@ -56,7 +56,7 @@
                              x-transition:leave="ease-in duration-200" 
                              x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" 
                              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" 
-                             class="relative inline-block w-4/5 h-screen align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle">
+                             class="relative inline-block max-w-5xl h-screen align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle">
                             
                             <!-- Modal content wrapper with sticky footer -->
                             <div class="flex flex-col max-w-5xl max-h-screen">
