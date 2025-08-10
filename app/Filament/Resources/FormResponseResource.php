@@ -45,6 +45,7 @@ class FormResponseResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
