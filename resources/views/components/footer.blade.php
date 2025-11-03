@@ -28,7 +28,7 @@
                 </div>
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
                     <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
-                    <p class="text-sm">Email: admin@skillsport.org</p>
+                    <p class="text-sm">Email: skillsport.org@gmail.com</p>
                     <p class="text-sm">Phone: 856-223-7708</p>
                 </div>
                 <div class="w-full md:w-1/4">
