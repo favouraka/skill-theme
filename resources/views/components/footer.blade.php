@@ -1,4 +1,4 @@
-<footer class="bg-gray-800 text-white py-8 mt-auto">
+<footer class="bg-primary text-white py-8 mt-auto">
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-between gap-4">
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-sm text-center">
+            <div class="border-t border-secondary mt-8 pt-8 text-sm text-center">
                 <p>&copy; {{ \Carbon\Carbon::now()->year }} {{env('APP_NAME', 'SkillSport')}}. All rights reserved.</p>
             </div>
         </div>

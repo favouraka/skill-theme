@@ -11,9 +11,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#334155', // slate-700
-        secondary: '#60a5fa', // blue-400
-        tertiary: '#e6c4a3', // golden beige
+        primary: '#0c343d',
+        secondary: '#45818e',
+        accent: '#9fc5e8',
+        tertiary: '#d9c6b0', // golden beige
         lightGray: '#f8f9fa',
       }
     },
