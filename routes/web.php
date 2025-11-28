@@ -34,3 +34,4 @@ Route::prefix('events')->group(function () {
         return app(EventShow::class, ['event' => $event])->render();
     })->name('events.show');
 });
+

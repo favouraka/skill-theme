@@ -20,7 +20,10 @@ class MultiContentRow extends PageBlock
                 TextInput::make('heading'),
                 Textarea::make('subheading'),
                 Checkbox::make('is_card'),
-                Repeater::make('content')->schema([
+                Repeater::make('content')
+                    ->collapsible()->collapsed()
+                    ->itemLabel('Content')
+                    ->schema([
                     TextInput::make('heading'),
                     TextInput::make('subheading'),
                     Textarea::make('content'),
@@ -39,7 +42,18 @@ class MultiContentRow extends PageBlock
                                         if (str_starts_with($icon, 'o-')) {
                                             $iconName = str_replace('o-', '', $icon);
                                             $displayName = ucwords(str_replace('-', ' ', $iconName));
-                                            $heroicons[$icon] = $displayName;
+                                            
+                                            // Generate the SVG HTML for the icon
+                                            $svgHtml = '';
+                                            try {
+                                                $svgHtml = (string) \Illuminate\Support\Facades\Blade::render("@svg('heroicon-{$icon}', 'w-5 h-5 inline-block mr-2')");
+                                            } catch (\Exception $e) {
+                                                // Fallback if icon can't be rendered
+                                                $svgHtml = '<span class="inline-block w-5 h-5 mr-2">⚙️</span>';
+                                            }
+                                            
+                                            // Create HTML option with icon
+                                            $heroicons[$icon] = $svgHtml . $displayName;
                                         }
                                     }
                                 }
@@ -64,7 +78,17 @@ class MultiContentRow extends PageBlock
                                             
                                             // Check if search term matches icon name or display name
                                             if (str_contains($iconName, $search) || str_contains(strtolower($displayName), strtolower($search))) {
-                                                $heroicons[$icon] = $displayName;
+                                                // Generate the SVG HTML for the icon
+                                                $svgHtml = '';
+                                                try {
+                                                    $svgHtml = (string) \Illuminate\Support\Facades\Blade::render("@svg('heroicon-{$icon}', 'w-5 h-5 inline-block mr-2')");
+                                                } catch (\Exception $e) {
+                                                    // Fallback if icon can't be rendered
+                                                    $svgHtml = '<span class="inline-block w-5 h-5 mr-2">⚙️</span>';
+                                                }
+                                                
+                                                // Create HTML option with icon
+                                                $heroicons[$icon] = $svgHtml . $displayName;
                                             }
                                         }
                                     }
