@@ -35,9 +35,11 @@
     </style>
     @livewireStyles
 </head>
-<body class="bg-lightGray font-sans" x-data="{ mobileMenu: false }">
+<body class="bg-lightGray font-sans min-h-screen flex flex-col" x-data="{ mobileMenu: false }">
     <x-navbar/>
-    {{$slot}}
+    <main class="flex-grow">
+        {{$slot}}
+    </main>
     <x-footer/>
     @filamentScripts
     @livewireScripts

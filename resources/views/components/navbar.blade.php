@@ -38,11 +38,13 @@
                   @endforeach
 
                   <!-- event and blog links -->
-                     <a href="{{ URL::to('events') }}" 
+                     @if($eventsEnabled)
+                     <a href="{{ URL::to('events') }}"
                          class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('events') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
                          @if(request()->is('events')) aria-current="page" @endif>
                          Events
                      </a>
+                     @endif
                      <a href="{{ URL::to('blog') }}" 
                          class="text-gray-700 px-3 py-2 rounded-md {{ request()->is('blog') ? 'bg-gray-100 text-primary font-bold' : 'hover:bg-gray-50' }} transition duration-300"
                          @if(request()->is('blog')) aria-current="page" @endif>
@@ -82,11 +84,13 @@
                      {{ $menuItem->title }}
                    </a>
                  @endforeach
-                <a href="{{ URL::to('events') }}" 
+                @if($eventsEnabled)
+                <a href="{{ URL::to('events') }}"
                    class="block px-4 py-3 rounded-md {{ request()->is('events') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
                    @if(request()->is('events')) aria-current="page" @endif>
-                   Events
-                </a>
+                  Events
+               </a>
+               @endif
                 <a href="{{ URL::to('blog') }}" 
                    class="block px-4 py-3 rounded-md {{ request()->is('blog') ? 'bg-gray-100 text-primary font-bold' : 'text-gray-700 hover:bg-gray-50' }} transition duration-300"
                    @if(request()->is('blog')) aria-current="page" @endif>

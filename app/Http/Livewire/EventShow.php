@@ -16,6 +16,11 @@ class EventShow extends Component
 
     public function render()
     {
+        // Check if events are enabled
+        if (!config('events.enabled', false)) {
+            abort(404);
+        }
+        
         return view('livewire.event-show');
     }
 }

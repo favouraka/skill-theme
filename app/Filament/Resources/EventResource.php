@@ -18,6 +18,11 @@ class EventResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-calendar';
 
+    public static function canViewAny(): bool
+    {
+        return config('events.enabled', false);
+    }
+
     public static function form(Form $form): Form
     {
         return $form

@@ -18,5 +18,19 @@ Route::get('/category-subscription', CategorySubscriptionForm::class)->name('cat
 use App\Http\Livewire\EventList;
 use App\Http\Livewire\EventShow;
 
-Route::get('/events', EventList::class)->name('events.index');
-Route::get('/events/{event}', EventShow::class)->name('events.show');
+// Event routes with visibility check
+Route::prefix('events')->group(function () {
+    Route::get('/', function () {
+        if (!config('events.enabled', false)) {
+            abort(404);
+        }
+        return app(EventList::class)->render();
+    })->name('events.index');
+    
+    Route::get('/{event}', function ($event) {
+        if (!config('events.enabled', false)) {
+            abort(404);
+        }
+        return app(EventShow::class, ['event' => $event])->render();
+    })->name('events.show');
+});

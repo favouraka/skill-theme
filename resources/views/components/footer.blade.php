@@ -1,4 +1,4 @@
-<footer class="bg-gray-800 text-white py-8">
+<footer class="bg-gray-800 text-white py-8 mt-auto">
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap justify-between gap-4">
                 <div class="w-full md:w-1/4 mb-6 md:mb-0">
@@ -15,7 +15,7 @@
 
                         <a href="{{ $homeUrl }}">
                             @if(file_exists(public_path($logoPath)))
-                                <img src="{{ asset($logoPath) }}" alt="SkillSport Logo" class="h-32 w-auto">
+                                <img src="{{ asset($logoPath) }}" alt="Website Logo" class="h-32 w-auto">
                             @else
                                 <span class="text-2xl font-bold">{{ $appName }}</span>
                             @endif
@@ -37,7 +37,9 @@
                                 </a>
                             </li>
                         @endforeach
+                        @if($eventsEnabled)
                         <li><a href="{{ URL::to('events') }}" class="hover:text-primary transition duration-300">Events</a></li>
+                        @endif
                         <li><a href="{{ URL::to('blog') }}" class="hover:text-primary transition duration-300">Blog</a></li>
                     </ul>
                 </div>
