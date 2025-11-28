@@ -23,7 +23,7 @@
                     {{-- card content --}}
                     <div class="p-6">
                         @if ($item['heroicon'])
-                        @svg('heroicon-o-'.$item['heroicon'], 'size-32 px-0 p-4 text-primary')
+                        @svg('heroicon-'.$item['heroicon'], 'size-32 px-0 p-4 text-primary')
 
                         @endif
                         <div class="flex items-center mb-4">
