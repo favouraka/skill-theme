@@ -15,14 +15,23 @@ class Jumbotron extends PageBlock
         return Block::make('jumbotron')
             ->schema([
                 //
-                TextInput::make('title'),
+                TextInput::make('title')->maxLength(140),
                 Textarea::make('subheading'),
                 FileUpload::make('image')->maxSize(2048)
                 ->imageEditor()
                 ->imageEditorAspectRatios([
                     '16:9',
                     '4:3',
-                ]),
+                ])
+                ->label('Background Image'),
+                FileUpload::make('hero_image')->maxSize(2048)
+                ->imageEditor()
+                ->imageEditorAspectRatios([
+                    '1:1',
+                    '4:5',
+                    '3:4',
+                ])
+                ->label('Hero Image (Right Side)'),
             ]);
     }
 
