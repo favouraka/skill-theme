@@ -1,5 +1,5 @@
 @aware(['page'])
-@props(['heading' => 'Multi Content Row', 'subheading' => 'This is a multi content row block', 'content' => [], 'collection_button_label' => null, 'collection_button_url' => null])
+@props(['heading' => 'Multi Content Row', 'subheading' => '', 'content' => [], 'collection_button_label' => null, 'collection_button_url' => null])
 
 {{-- This component displays a row of cards with images and content. --}}
 {{-- The image is optional and can be set to null if not needed. --}}
