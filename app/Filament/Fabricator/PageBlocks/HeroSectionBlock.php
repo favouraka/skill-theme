@@ -30,7 +30,16 @@ class HeroSectionBlock extends PageBlock
                 ->imageEditorAspectRatios([
                     '16:9',
                     '4:3',
-                ]),
+                ])
+                ->label('Background Image'),
+                \Filament\Forms\Components\FileUpload::make('hero_image')->maxSize(2048)
+                ->imageEditor()
+                ->imageEditorAspectRatios([
+                    '1:1',
+                    '4:5',
+                    '3:4',
+                ])
+                ->label('Hero Image (Right Side)'),
             ]);
     }
 
