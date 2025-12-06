@@ -41,7 +41,7 @@
                     @close-modal.window="showModal = false"
                     class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                     
-                    <livewire:image-text-block-form :heading="$heading" />
+                    <livewire:image-text-block-form :heading="$heading" :cancelBtn="$showButton" />
                 </div>
             </div>
         </div>

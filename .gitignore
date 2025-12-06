@@ -24,3 +24,6 @@ yarn-error.log
 
 # Database dumps
 /db_dump/
+archive.sh
+ARCHIVE.md
+*.zip

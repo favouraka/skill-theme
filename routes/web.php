@@ -35,3 +35,21 @@ Route::prefix('events')->group(function () {
     })->name('events.show');
 });
 
+// Storage link route
+Route::get('/storage-link', function () {
+    try {
+        \Artisan::call('storage:link --force');
+        $output = \Artisan::output();
+        return response()->json([
+            'success' => true,
+            'message' => 'Storage link created successfully',
+            'output' => $output
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Failed to create storage link',
+            'error' => $e->getMessage()
+        ], 500);
+    }
+})->name('storage.link');

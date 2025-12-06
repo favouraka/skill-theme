@@ -1,9 +1,11 @@
-<form wire:submit="submit" class="flex-col align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle w-full">
-    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+@props(['cancel' =>true])
+
+<form wire:submit="submit" class=" max-w-5xl mx-auto align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 w-full">
+    <div class="bg-white px-8 pt-5 pb-4 sm:p-6 sm:pb-4">
         <div class="sm:flex sm:items-start">
             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
-                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-                    Contact Us about {{$service_name}}
+                <h3 class="text-3xl font-heavy my-8 leading-6 font-medium text-gray-900" id="modal-title">
+                   {{ $service_name }}
                 </h3>
                 {{-- listener that show success --}}
                 @if (session()->has('message'))
@@ -15,7 +17,7 @@
                         </span>
                     </div>
                 @endif
-                <div class="mt-2">
+                <div class="mt-2 max-w-4xl ">
                     <div class="space-y-4">
                         <div>
                             <label for="form_name" class="block text-sm font-medium text-gray-700">Name</label>
@@ -62,8 +64,10 @@
         <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:ml-3 sm:w-auto sm:text-sm">
             Submit
         </button>
+        @if($this->cancelBtn)
         <button @click="showModal = false" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-tertiary sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
             Cancel
         </button>
+        @endif
     </div>
 </form>

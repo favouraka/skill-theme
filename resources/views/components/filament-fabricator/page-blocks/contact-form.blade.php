@@ -1,6 +1,7 @@
 @aware(['page'])
+@props(['heading'=> ''])
 <div class="px-4 py-4 md:py-8 flex">
-    <div class="max-w-7xl mx-auto ">
-        <livewire:image-text-block-form heading="Partnership" />
+    <div class="w-full">
+        <livewire:image-text-block-form cancelBtn="{{ false }}" heading="{!! $heading !!}" />
     </div>
 </div>

@@ -12,6 +12,7 @@ class ImageTextBlockForm extends Component
     public $form_message = '';
     public $form_phone = ''; // Assuming phone is not part of the form, but included for completeness
     public $service_name = '';
+    public $cancelBtn = true;
 
     protected $rules = [
         'form_name' => 'required|min:2',
@@ -20,9 +21,10 @@ class ImageTextBlockForm extends Component
         'form_message' => 'nullable',
     ];
 
-    public function mount($heading)
+    public function mount($heading, $cancelBtn)
     {
         $this->service_name = $heading;
+        $this->cancelBtn = $cancelBtn;
     }
 
     public function submit()
