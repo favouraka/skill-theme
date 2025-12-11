@@ -25,8 +25,8 @@
 {{-- The block uses the aspect ratio of 4:3 for the images. --}}`
 <div class="p-8 md:py-16">
     <div class="max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 {{ !empty($images) ? 'md:grid-cols-2 gap-8' : '' }}">
-            <div class="space-y-4 ">
+        <div class="{{ !empty($images) ? 'grid grid-cols-1 md:grid-cols-2 gap-8' : 'grid grid-cols-1' }}">
+            <div class="space-y-4 {{ empty($images) ? 'col-span-1' : 'md:col-span-1' }}">
                 <h2 class="text-5xl font-bold">{{$heading}}</h2>
                 <h3 class="text-2xl font-semibold text-gray-600">{{$subheading}}</h3>
                 <div class="prose text-gray-700 w-full">
