@@ -13,10 +13,10 @@ class TestimonialsFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'age' => $this->faker->numberBetween(25, 65),
-            'description' => $this->faker->jobTitle(),
+            // 'age' => $this->faker->numberBetween(25, 65),
+            // 'description' => $this->faker->jobTitle(),
             'content' => $this->faker->realText(200),
-            'image' => 'https://source.unsplash.com/random/150x150/?portrait&' . $this->faker->numberBetween(1, 1000),
+            // 'image' => 'https://source.unsplash.com/random/150x150/?portrait&' . $this->faker->numberBetween(1, 1000),
         ];
     }
 }
