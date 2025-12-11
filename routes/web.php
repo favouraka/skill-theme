@@ -53,3 +53,11 @@ Route::get('/storage-link', function () {
         ], 500);
     }
 })->name('storage.link');
+
+// Test social media route
+Route::get('/test-social-media', function () {
+    $socialMedia = \App\Models\SocialMedia::getActiveSocialMedia();
+    $platforms = config('social-media.platforms');
+
+    return view('test-social-media', compact('socialMedia', 'platforms'));
+})->name('test.social-media');
