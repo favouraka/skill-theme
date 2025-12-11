@@ -2,16 +2,14 @@
 <div x-data="{ showModal: false }" class="max-w-4xl w-full mx-auto p-4">
         <!-- Card Component -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col md:flex-row">
-            <!-- Image Section -->
+            <!-- Image Section - only render if image exists -->
+            @if(!empty($image))
             <div class="md:w-1/3 h-64 md:h-auto">
-                @if(isset($image))
-                    <img src="{{ asset('storage/'.$image) }}" alt="Card Image" class="w-full h-full object-cover">
-                @else
-                    <div class="w-full h-full bg-gray-200"></div>
-                @endif
+                <img src="{{ asset('storage/'.$image) }}" alt="Card Image" class="w-full h-full object-cover">
             </div>
-            <!-- Content Section -->
-            <div class="p-6 md:w-2/3 flex flex-col justify-between">
+            @endif
+            <!-- Content Section - adjust width based on image presence -->
+            <div class="p-6 {{ !empty($image) ? 'md:w-2/3' : 'w-full' }} flex flex-col justify-between">
                 <div>
                     <h2 class="text-3xl font-bold mb-4 text-primary">{{$heading}}</h2>
                     <div class="prose text-gray-600 mb-4">{!! $content !!}</div>

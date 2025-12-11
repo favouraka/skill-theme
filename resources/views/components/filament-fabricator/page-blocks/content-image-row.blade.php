@@ -25,7 +25,7 @@
 {{-- The block uses the aspect ratio of 4:3 for the images. --}}`
 <div class="p-8 md:py-16">
     <div class="max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 {{ $images ? 'md:grid-cols-2 gap-8' : '' }}">
+        <div class="grid grid-cols-1 {{ !empty($images) ? 'md:grid-cols-2 gap-8' : '' }}">
             <div class="space-y-4 ">
                 <h2 class="text-5xl font-bold">{{$heading}}</h2>
                 <h3 class="text-2xl font-semibold text-gray-600">{{$subheading}}</h3>
@@ -44,28 +44,26 @@
                     </a>
                 @endif
             </div>
-            {{-- {{dd($images)}} --}}
-            @if (is_array($images))
-                @if (count($images) > 0)
-                    <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
+            {{-- Image Section - only render if images exist --}}
+            @if(!empty($images))
+                @if (is_array($images))
+                    @if (count($images) > 0)
+                        <div class="flex flex-col relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
+                            <div class="space-y-4 flex flex-col gap-4 relative m-auto">
+                                @foreach ($images as $item)
+                                    <img src="{{asset('storage/'.$item)}}" alt="Image" class="aspect-4/3">
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                @else
+                    {{-- Single image --}}
+                    <div class="flex flex-col relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
                         <div class="space-y-4 flex flex-col gap-4 relative m-auto">
-                            @foreach ($image as $item)
-                                <img src="{{asset('storage/'.$item)}}" alt="Image" class="aspect-4/3">
-                            @endforeach
+                            <img src="{{asset('storage/'.$images)}}" alt="Image" class="aspect-4/3">
                         </div>
                     </div>
                 @endif
-            @elseif(isset($images))
-                {{-- If $image is set (single image) --}}
-                <div class="{{$images ? 'flex flex-col' : 'hidden'}} relative  {{$align == 'left' ? 'lg:order-last' : 'lg:order-first' }} p-4">
-                    <div class="space-y-4 flex flex-col gap-4 relative m-auto">
-                        {{-- Display the single image --}}
-                        <img src="{{asset('storage/'.$images)}}" alt="Image" class="aspect-4/3">
-                    </div>
-                </div>
-            @else
-                {{-- If no image is set, hide the div --}}
-                <div class="hidden"></div>
             @endif
         </div>
     </div>
