@@ -25,7 +25,7 @@
                                 type="text" 
                                 wire:model="form_name" 
                                 id="form_name" 
-                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border border-gray-200">
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border">
                             @error('form_name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                         </div>
                         <div>
@@ -34,25 +34,94 @@
                                 type="email" 
                                 wire:model="form_email" 
                                 id="form_email" 
-                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border border-gray-200">
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border">
                             @error('form_email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label for="form_phone" class="block text-sm font-medium text-gray-700">Phone (optional)</label>
-                            <input 
-                                type="text" 
-                                wire:model="form_phone" 
-                                id="form_phone" 
-                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border border-gray-200">
+                            <input
+                                type="text"
+                                wire:model="form_phone"
+                                id="form_phone"
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border">
                             @error('form_phone') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                         </div>
                         <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700">Service</label>
+                            @if(count($services) === 0)
+                                <!-- No services - readonly text input with General Inquiry -->
+                                <input
+                                    type="text"
+                                    wire:model="selected_service"
+                                    id="service"
+                                    readonly
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border bg-gray-100">
+                            @elseif(count($services) === 1)
+                                <!-- Single service - readonly text input with the service name -->
+                                <input
+                                    type="text"
+                                    wire:model="selected_service"
+                                    id="service"
+                                    readonly
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border bg-gray-100">
+                            @else
+                                <!-- Multiple services - custom dropdown selector -->
+                                <div class="relative">
+                                    <input
+                                        type="text"
+                                        wire:model="selected_service"
+                                        id="service"
+                                        readonly
+                                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border cursor-pointer"
+                                        onclick="toggleDropdown()">
+                                    <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                        <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <!-- Dropdown options -->
+                                    <div id="service-dropdown" class="hidden absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-auto">
+                                        <div class="p-2">
+                                            @foreach($services as $service)
+                                                <div
+                                                    class="p-2 hover:bg-gray-100 cursor-pointer rounded"
+                                                    onclick="selectService('{{ $service['name'] }}')">
+                                                    {{ $service['name'] }}
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                                <script>
+                                    function toggleDropdown() {
+                                        const dropdown = document.getElementById('service-dropdown');
+                                        dropdown.classList.toggle('hidden');
+                                    }
+
+                                    function selectService(serviceName) {
+                                        @this.set('selected_service', serviceName);
+                                        document.getElementById('service-dropdown').classList.add('hidden');
+                                    }
+
+                                    // Close dropdown when clicking outside
+                                    document.addEventListener('click', function(event) {
+                                        const dropdown = document.getElementById('service-dropdown');
+                                        const input = document.getElementById('service');
+
+                                        if (dropdown && input && !dropdown.contains(event.target) && !input.contains(event.target)) {
+                                            dropdown.classList.add('hidden');
+                                        }
+                                    });
+                                </script>
+                            @endif
+                        </div>
+                        <div>
                             <label for="form_message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <textarea 
-                                wire:model="form_message" 
-                                id="form_message" 
-                                rows="3" 
-                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border border-gray-200"></textarea>
+                            <textarea
+                                wire:model="form_message"
+                                id="form_message"
+                                rows="3"
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-3 border"></textarea>
                             @error('form_message') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                         </div>
                     </div>

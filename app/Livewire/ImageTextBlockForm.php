@@ -12,6 +12,8 @@ class ImageTextBlockForm extends Component
     public $form_message = '';
     public $form_phone = ''; // Assuming phone is not part of the form, but included for completeness
     public $service_name = '';
+    public $services = [];
+    public $selected_service = 'General Inquiry';
     public $cancelBtn = true;
 
     protected $rules = [
@@ -21,10 +23,23 @@ class ImageTextBlockForm extends Component
         'form_message' => 'nullable',
     ];
 
-    public function mount($heading, $cancelBtn)
+    public function mount($heading, $cancelBtn, $services = [])
     {
         $this->service_name = $heading;
         $this->cancelBtn = $cancelBtn;
+        $this->services = $services;
+
+        // Handle different service scenarios
+        if (empty($this->services)) {
+            // No services - default to "General Inquiry"
+            $this->selected_service = 'General Inquiry';
+        } elseif (count($this->services) === 1) {
+            // Single service - use that service name
+            $this->selected_service = $this->services[0]['name'] ?? 'General Inquiry';
+        } else {
+            // Multiple services - default to first one, but will show select dropdown
+            $this->selected_service = $this->services[0]['name'] ?? 'General Inquiry';
+        }
     }
 
     public function submit()
@@ -36,7 +51,7 @@ class ImageTextBlockForm extends Component
             'email' => $this->form_email,
             'phone' => $this->form_phone, // Assuming phone is not part of the form
             'message' => $this->form_message,
-            'service_requested' => $this->service_name,
+            'service_requested' => $this->selected_service,
         ]);
 
         session()->flash('message', 'Your request has been submitted successfully!');   
