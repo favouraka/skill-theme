@@ -152,27 +152,41 @@
     }
 }
 
-/* Smooth scrolling for touch devices */
+/* Mobile scrolling - keep animation but enable touch fallback */
 @media (max-width: 768px) {
     .logo-strip-container {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        touch-action: pan-x;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
-    
+
     .logo-strip-container::-webkit-scrollbar {
         display: none;
     }
-    
+
     .logo-track {
-        animation: none;
         display: flex;
         width: max-content;
+        min-width: 100%;
+        padding: 0 1rem;
     }
-    
-    .pause-on-hover:hover .logo-track {
-        animation-play-state: running;
+
+    /* Ensure proper spacing for mobile */
+    .logo-item {
+        margin: 0 1rem;
+    }
+
+    /* Allow touch scrolling to override animation when user interacts */
+    .logo-track:active {
+        animation-play-state: paused;
     }
 }
 

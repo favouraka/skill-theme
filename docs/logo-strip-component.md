@@ -52,7 +52,16 @@ resources/views/components/filament-fabricator/page-blocks/logo-strip.blade.php
 ### JavaScript Functionality
 - **Performance Optimization**: Intersection observer pauses animation when not visible
 - **Accessibility**: Detects and respects `prefers-reduced-motion` setting
-- **Touch Support**: Fallback to horizontal scrolling on mobile devices
+- **Touch Support**: Fallback to horizontal scrolling on mobile devices with enhanced touch gestures
+
+### Mobile Scrolling Enhancements
+- **Automatic Scrolling**: Maintains animation on mobile devices for consistent behavior
+- **Smooth Touch Scrolling**: Uses `touch-action: pan-x` for fluid horizontal scrolling
+- **Improved User Experience**: Prevents accidental text selection with `user-select: none`
+- **Optimized Container**: Proper overflow handling with `overflow-x: auto`
+- **Enhanced Track Width**: Uses `min-width: 100%` to ensure scrollable area
+- **Clean UI**: Maintains hidden scrollbars for uncluttered appearance
+- **Interactive Control**: Animation pauses when user touches the strip for manual scrolling
 
 ## Usage Instructions
 
@@ -121,8 +130,11 @@ resources/views/components/filament-fabricator/page-blocks/logo-strip.blade.php
 
 **Mobile scrolling issues:**
 - Test on actual mobile devices (not just desktop simulation)
-- Verify touch scrolling is working when animations are disabled
-- Check that logo container is not wider than screen
+- Verify automatic scrolling works on mobile devices
+- Check that touch scrolling works when user interacts with the strip
+- Ensure touch-action: pan-x is properly applied for smooth horizontal scrolling
+- Confirm user-select: none prevents accidental text selection during scrolling
+- Verify animation pauses when user touches the strip for manual control
 
 **Performance concerns:**
 - Limit number of logos (recommended 6-12 unique logos)
